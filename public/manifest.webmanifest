@@ -5,6 +5,12 @@
   "start_url": "/",
   "scope": "/",
   "display": "minimal-ui",
+  "xr_main_scene": {
+    "default_size": {
+      "width": 500,
+      "height": 1000
+    }
+  },
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "icons": [

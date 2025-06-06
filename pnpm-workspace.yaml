@@ -1,0 +1,3 @@
+packages:
+  - '../../Tools/webspatial-sdk/packages/*'
+

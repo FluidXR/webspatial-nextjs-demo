@@ -4,14 +4,18 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:avp": "XR_ENV=avp next dev",
+    "run:avp": "webspatial-builder run --base=$XR_DEV_SERVER",
     "build": "next build",
     "start": "next start",
+    "build:avp": "webspatial-builder build --base=$XR_PRE_SERVER --bundle-id=$XR_BUNDLE_ID --teamId=$XR_TEAM_ID",
+    "publish:avp": "webspatial-builder publish  --base=$XR_PROD_SERVER --bundle-id=$XR_BUNDLE_ID --teamId=$XR_TEAM_ID --version=$XR_VERSION --u=$XR_DEV_NAME --p=$XR_DEV_PASSWORD",
     "lint": "next lint"
   },
   "dependencies": {
     "@google/model-viewer": "^4.1.0",
-    "@webspatial/core-sdk": "workspace:*",
-    "@webspatial/react-sdk": "workspace:*",
+    "@webspatial/core-sdk": "^0.1.19",
+    "@webspatial/react-sdk": "^0.1.19",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -23,14 +27,15 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@webspatial/builder": "workspace:*",
-    "@webspatial/next-plugin": "^0.1.6",
-    "@webspatial/platform-visionos": "workspace:*",
+    "@webspatial/builder": "^0.1.19",
+    "@webspatial/next-plugin": "^0.1.7",
+    "@webspatial/platform-visionos": "^0.1.19",
     "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "postcss": "^8.5.4",
     "tailwindcss": "^4.1.8",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "pnpm@9.0.0+sha512.b4106707c7225b1748b61595953ccbebff97b54ad05d002aa3635f633b9c53cd666f7ce9b8bc44704f1fa048b9a49b55371ab2d9e9d667d1efe2ef1514bcd513"
 }

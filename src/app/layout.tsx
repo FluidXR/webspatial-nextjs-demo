@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "SpatialSDK Demo",
   description: "WebSpatial SDK demonstration app",
-  manifest: "/manifest.webmanifest",
+  manifest: `${__XR_ENV_BASE__}/manifest.webmanifest`,
 };
 
 export default function RootLayout({
@@ -25,15 +25,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={process.env.XR_ENV === "avp" ? "is-spatial" : ""}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Script id="sw-register" strategy="afterInteractive">
           {`
             if ('serviceWorker' in navigator) {
               window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/sw.js')
+                const basePath = document.documentElement.classList.contains('is-spatial') ? '/webspatial/avp' : '';
+                navigator.serviceWorker.register(basePath + '/sw.js')
                   .then(function(registration) {
                     console.log('SW registered: ', registration);
                   })
